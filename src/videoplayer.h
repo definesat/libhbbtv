@@ -4,10 +4,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "npapi.h"
-#include "nptypes.h"
-#include "npfunctions.h"
-#include "npruntime.h"
+#include "webkit-plugin-header/npapi.h"
+#include "webkit-plugin-header/nptypes.h"
+#include "webkit-plugin-header/npfunctions.h"
+#include "webkit-plugin-header/npruntime.h"
 
 #include "hbbtvbrowserplugin.h"
 
