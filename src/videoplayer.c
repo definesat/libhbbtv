@@ -166,12 +166,14 @@ void *onPlayStateChange(void *data)
     attr.mq_curmsgs = 0;
 
     /* create the message queue */
-    mq = mq_open(QUEUE_NAME, flags, mode, &attr);
+    mq = mq_open(QUEUE_NAME, flags, 0777, &attr);
 
     if(mq == -1){
-        debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! queue creation failed, ERRNO: %d\n",errno);
-        exit(0);
-    }
+		debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! queue creation failed, ERRNO: %s\n", strerror(errno));
+		exit(0);
+	}else{
+		debug("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ok\n");
+	}
 
 	while(1)
 	{
