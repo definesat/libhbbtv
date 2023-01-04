@@ -51,7 +51,7 @@ TESTLOG = /tmp/test-err.txt
 ###############################################################################
 ## Programs
 
-COMPILER	= arm-linux-gcc
+COMPILER	= arm-oe-linux-gnueabi-gcc
 #COMPILER	= arm-linux-g++
 
 DELETER		= rm -f
