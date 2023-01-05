@@ -51,7 +51,7 @@ typedef struct
 	char style[2048];
 }HBBTVPluginData;
 
-NPNetscapeFuncs* sBrowserFuncs;
+extern NPNetscapeFuncs* sBrowserFuncs;
 
 #define ALLOCBROWSERMEMORY  true
 

@@ -89,6 +89,7 @@
 
 #define MIN(x, y) (((x) < (y)) ? (x) : (y))
 
+NPNetscapeFuncs *sBrowserFuncs;
 
 static void
 fillPluginFunctionTable(NPPluginFuncs* pFuncs)
