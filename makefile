@@ -23,25 +23,25 @@ MAINTARGET = bin/libhbbtvbrowserplugin.so
 SRCDIR = src
 HEADERSDIR = src
 
-OBJ = 	hbbtvbrowserplugin.o\
-		hbbtvbrowserpluginapi.o \
-		oipfapplicationmanager.o\
-		applicationclass.o\
-		applicationprivatedataclass.o\
-		oipfconfiguration.o\
-		configurationclass.o\
-		capabilityclass.o\
-		currentchannelclass.o\
-		oipfdownloadmanager.o\
-		oipfdownloadtrigger.o\
-		downloadclass.o\
-		downloadcollectionclass.o\
-		drmcontrolinfocollectionclass.o\
-		drmcontrolinformationclass.o\
-		videobroadcast.o\
-        videoplayer.o\
-		keysetclass.o\
-		hbbtvcommonutil.o
+OBJ = 	obj/hbbtvbrowserplugin.o\
+		obj/hbbtvbrowserpluginapi.o \
+		obj/oipfapplicationmanager.o\
+		obj/applicationclass.o\
+		obj/applicationprivatedataclass.o\
+		obj/oipfconfiguration.o\
+		obj/configurationclass.o\
+		obj/capabilityclass.o\
+		obj/currentchannelclass.o\
+		obj/oipfdownloadmanager.o\
+		obj/oipfdownloadtrigger.o\
+		obj/downloadclass.o\
+		obj/downloadcollectionclass.o\
+		obj/drmcontrolinfocollectionclass.o\
+		obj/drmcontrolinformationclass.o\
+		obj/videobroadcast.o\
+        obj/videoplayer.o\
+		obj/keysetclass.o\
+		obj/hbbtvcommonutil.o
 
 EXPORTHEADERS = hbbtvbrowserpluginapi.h
 
@@ -79,11 +79,15 @@ LIBRARYFLAGS += $(PKGLIBS)
 
 all : $(MAINTARGET)
 
-$(MAINTARGET) : $(OBJ)
+prepare:
+	mkdir bin
+	mkdir obj
+
+$(MAINTARGET) : prepare $(OBJ)
 	@echo "====> Compiling $(MAINTARGET)"
 	$(COMPILER) $(CFLAGS) $(LIBRARYFLAGS) -shared $(OBJ) -o $(MAINTARGET)
 
-%.o: $(SRCDIR)/%.c $(HEADERSDIR)/%.h
+obj/%.o: $(SRCDIR)/%.c $(HEADERSDIR)/%.h
 	@echo "====> Compiling $< "
 	$(COMPILER) $(CFLAGS) -c $< $(INCLUDEFLAGS) -o $@
 
